@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Votación</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      background-color: #003b6f;
+    }
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+    }
+    .candidate-info {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .candidate-info img {
+      width: 200px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .form-check {
+      text-align: center;
+      font-size: 1.5rem; /* Aumentar tamaño del texto del checkbox */
+      margin-bottom: 20px;
+    }
+    .form-check input {
+      width: 30px; /* Aumentar tamaño del checkbox */
+      height: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .alert-warning {
+      display: none;
+      color: red;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .btn-vote {
+      background-color: #003b6f;
+      border: none;
+    }
+    .btn-vote:disabled {
+      background-color: grey;
+    }
+    .btn-vote:hover:enabled {
+      background-color: #002a50;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Sistema Nacional de Votaciones</a>
+  </nav>
+
+  <!-- Candidate Voting Form Section -->
+  <section class="container my-5">
+    <div class="candidate-info">
+      <img id="candidate-photo" src="https://via.placeholder.com/200x200" alt="Foto del Candidato">
+      <h2 id="candidate-name">Candidato 1</h2>
+      <p id="candidate-description">Este candidato promueve el desarrollo económico sostenible a través de la inversión en infraestructura.</p>
+    </div>
+    
+    <form id="vote-form">
+      <!-- Checkbox para confirmar el voto -->
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="confirm-vote" disabled>
+        <label class="form-check-label ml-3" for="confirm-vote" id="confirm-label">¿Seguro que quieres votar por el candidato?</label>
+      </div>
+
+      <!-- Alerta en rojo si el checkbox no está marcado -->
+      <div class="alert-warning" id="vote-alert">
+        ¡Hasta que no pulses el checkbox, no podrás emitir tu voto!
+      </div>
+
+      <!-- Botón de enviar voto, inicialmente deshabilitado -->
+      <button type="submit" class="btn btn-vote btn-lg btn-block" id="vote-btn" disabled>Enviar Voto</button>
+    </form>
+  </section>
+
+  <script>
+    // Obtener el parámetro de la URL (candidato seleccionado)
+    const urlParams = new URLSearchParams(window.location.search);
+    const candidateId = urlParams.get('candidate');
+
+    // Datos de los candidatos (ejemplo)
+    const candidates = {
+      1: {
+        name: "Candidato 1",
+        photo: "https://via.placeholder.com/200x200",
+        description: "Este candidato promueve el desarrollo económico sostenible a través de la inversión en infraestructura."
+      },
+      2: {
+        name: "Candidato 2",
+        photo: "https://via.placeholder.com/200x200",
+        description: "Este candidato lucha por la justicia social y una distribución equitativa de los recursos."
+      },
+      // Agregar más candidatos según sea necesario
+    };
+
+    // Actualizar la información del candidato seleccionado
+    if (candidates[candidateId]) {
+      document.getElementById('candidate-photo').src = candidates[candidateId].photo;
+      document.getElementById('candidate-name').innerText = candidates[candidateId].name;
+      document.getElementById('candidate-description').innerText = candidates[candidateId].description;
+      document.getElementById('confirm-label').innerText = `¿Seguro que quieres votar por ${candidates[candidateId].name}?`;
+    }
+
+    // Referencias a los elementos
+    const confirmVoteCheckbox = document.getElementById('confirm-vote');
+    const voteButton = document.getElementById('vote-btn');
+    const voteAlert = document.getElementById('vote-alert');
+
+    // Habilitar el botón de voto solo cuando se marque el checkbox
+    confirmVoteCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        voteButton.disabled = false;
+        voteAlert.style.display = 'none'; // Ocultar la alerta si está marcada
+      } else {
+        voteButton.disabled = true;
+        voteAlert.style.display = 'block'; // Mostrar la alerta si no está marcada
+      }
+    });
+
+    // Habilitar el checkbox tras unos segundos (simulando condiciones necesarias para votar)
+    setTimeout(() => {
+      confirmVoteCheckbox.disabled = false;
+      voteAlert.style.display = 'block'; // Mostrar la alerta hasta que se marque el checkbox
+    }, 1000); // Simulamos que toma 1 segundo habilitar el checkbox
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

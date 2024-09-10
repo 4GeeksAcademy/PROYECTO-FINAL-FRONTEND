@@ -1,29 +1,266 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Sistema Nacional de Votaciones en Línea</title>
+    <link rel="stylesheet" href="style.css" />
     <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
     />
-    <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark navbarBorder">
+        <a class="navbar-brand" href="#">Sistema Nacional de Votaciones</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Encuestas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary text-white"
+                href="authentication.html"
+                >Autenticate</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img
+        class="flag"
+        src="https://www.comprarbanderas.es/images/banderas/400/2466-venezuela-7-estrellas-_400px.jpg"
+        alt="Bandera del país"
+      />
+      <div class="container">
+        <h1 class="display-4">Sistema Nacional de Votaciones en Línea</h1>
+        <h2 class="lead">Transparente, seguro y accesible para todos.</h2>
+        <p>Respaldado mediante Blockchain Pública</p>
+        <a href="authentication.html" class="btn btn-primary btn-lg"
+          >Autenticación de Identidad</a
+        >
       </div>
-    </div>
+    </section>
+
+    <!-- Favorite Candidates Section -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Conoce a Quién Votas y Qué Promueven</h2>
+      <div class="row">
+        <!-- Candidate Card Example -->
+        <div class="col-md-4 candidatesCard">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1724435811349-32d27f4d5806?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 1"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Adrián Rojas</h4>
+              <h5 class="card-title">
+                Partido Politico: Partido del Progreso Social
+              </h5>
+              <p class="card-text">
+                "Promoveré una economía justa y equitativa, enfocada en reducir
+                la desigualdad social. Invertir en educación y salud pública es
+                clave para un futuro mejor. Juntos construiremos un país más
+                inclusivo, donde cada ciudadano tenga las mismas oportunidades
+                para prosperar."
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat cards for more candidates -->
+        <div class="col-md-4">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 2"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Santiago Espinoza</h4>
+              <h5 class="card-title">Partido Politico: Unión Verde</h5>
+              <p class="card-text">
+                El cambio climático es una realidad inminente. Mi prioridad será
+                implementar políticas ambientales responsables, protegiendo
+                nuestros recursos naturales y generando energías limpias.
+                Trabajaremos por un crecimiento sostenible que asegure el
+                bienestar de las futuras generaciones.
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1722270608841-35d7372a2e85?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 3"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Valeria Cruz</h4>
+              <h5 class="card-title">Partido Politico:</h5>
+              <p class="card-text">
+                Mi compromiso es con la seguridad nacional y la defensa de
+                nuestra soberanía. Fortaleceremos nuestras fronteras,
+                combatiremos el crimen organizado y devolveremos la paz a
+                nuestras calles. Con mano firme, protegeré los valores y la
+                integridad de nuestra nación.
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1655874819398-c6dfbec68ac7?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 4"
+            />
+
+            <div class="card-body">
+              <h4 class="card-title">Jorge Salgado</h4>
+              <h5 class="card-title">
+                Partido Politico: Movimiento Igualdad y Libertad
+              </h5>
+              <p class="card-text">
+                El futuro de nuestro país depende de la igualdad de género y los
+                derechos humanos. Protegeremos los derechos de las mujeres, la
+                comunidad LGBTQ+ y los más vulnerables. Lucharemos por una
+                sociedad donde la libertad y la igualdad sean pilares
+                inquebrantables.
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 5"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Laura Méndez</h4>
+              <h5 class="card-title">
+                Partido Politico: Alianza de Innovación Tecnológica
+              </h5>
+              <p class="card-text">
+                El progreso está en la tecnología. Fomentaremos el desarrollo de
+                startups, la innovación digital y la inteligencia artificial
+                para modernizar nuestra economía. Conectaremos a todos los
+                ciudadanos con las herramientas del futuro, creando empleo y
+                mejorando la calidad de vida.
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card candidate-card">
+            <img
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="card-img-top candidates"
+              alt="Candidato 6"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Daniela Fuentes</h4>
+              <h5 class="card-title">
+                Partido Politico: Fuerza Popular Democrática
+              </h5>
+              <p class="card-text">
+                Fortaleceré nuestras instituciones democráticas, promoviendo la
+                transparencia y el combate a la corrupción. Mi misión es
+                devolver la confianza en el sistema, asegurando que el gobierno
+                trabaje para el pueblo. Reformaremos las leyes para garantizar
+                justicia y equidad.
+              </p>
+              <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Official and User Surveys Section -->
+    <section class="survey-section">
+      <div class="container">
+        <h2 class="text-center mb-4">Encuestas Oficiales y del Usuario</h2>
+        <div class="row">
+          <!-- Official Survey Card Example -->
+          <div class="col-md-6">
+            <div class="survey-card">
+              <h5>Encuesta Oficial del Estado</h5>
+              <p>Resumen de la encuesta oficial publicada por el estado.</p>
+              <a href="#" class="btn btn-primary">Participar</a>
+            </div>
+          </div>
+          <!-- User Survey Card Example -->
+          <div class="col-md-6">
+            <div class="survey-card">
+              <h5>Encuesta del Usuario</h5>
+              <p>Participa en nuestra encuesta y comparte tus opiniones.</p>
+              <a href="#" class="btn btn-primary">Participar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a
+        href="src/menuDeCandidatos.html"
+        class="btn btn-vote btn-block text-white"
+        >ver pagina de menude candidatos</a
+      >
+      <a
+        href="src/formularioDeVotacion.html"
+        class="btn btn-vote btn-block text-white"
+        >ver formualrio</a
+      >
+      <a href="#" class="btn btn-vote btn-block text-white">Votar</a>
+      <p>&copy; 2024 Sistema Nacional de Votaciones</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+<!-- Queda pendiente realizar la logica de conectar los candidatos con el area de votacion, luego de eso hacer componentes con REACT para hacerla single web page  -->
+<!-- pendinete de hacer pagina de inscripcion de candidatos y formulario de inscripcion y poder enviar por enlace para que se registren con autenticacion -->
+<!-- pendiente de poner redes sociales en los cards de los candidatos -->
+<!-- pendiente como conectar los submit con la blockchain -->
+<!-- pendiente como manejar la base de datos -->
+<!-- revisar las logicas de implementacion que uso gpt hasta el momento y pasarla a hojas de js sacarlo del html  -->
+<!-- como conectar la interfaz con la blockchain y base de datos -->
